@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST={"index.tsx -> ../components/Model":{"id":"index.tsx -> ../components/Model","files":["static/chunks/components_Model_tsx.js"]},"index.tsx -> ../components/ModelOBJ":{"id":"index.tsx -> ../components/ModelOBJ","files":["static/chunks/components_ModelOBJ_tsx.js"]}}

@@ -1,0 +1,191 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.info-bottom {
+  transition: height 0.5s ease-in-out;
+}
+
+.info-side {
+  transition: width 0.5s ease-in-out;
+}
+
+.info-side-text {
+  transition: opacity 0.3s ease-in-out;
+  transition-delay: 0.5s;
+}
+
+.roundPrev {
+  position: relative;
+  border: 2px;
+  margin-top: 0.6rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  background-image: linear-gradient(175deg,#bceb00,#00eaea);
+  background-origin: border-box !important;
+  border-color: transparent;
+}
+
+.round {
+  position: relative;
+  border: 2px;
+  margin-top: 0.6rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  background-image: linear-gradient(175deg,#bceb00,#00eaea);
+  background-origin: border-box !important;
+  border-color: transparent;
+}
+
+.outliner {
+  position: absolute;
+  margin-top: 0.1rem;
+  margin-left: 0.1rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 100%;
+  background-color: white;
+  background-origin: border-box !important;
+}
+
+.outliner:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.sound-buttons {
+  padding: 0.2rem 0 0 0.3rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.control-buttons {
+  padding: 0.3rem 0 0 0.3rem;
+  width: 1.4rem;
+  height: 1.4rem;
+}
+
+#cta {
+  width:100%;
+  cursor: pointer;
+  position: relative;
+  border-radius: 100%;
+}
+
+#cta .arrow{left: 22%;}
+#cta .arrowPrev{left: 10%;}
+.arrow {position: absolute; bottom: 0;  margin-left:0px; width: 12px; height: 12px; background-size: contain; top:8px;}
+.arrowPrev {position: absolute; bottom: 0;  margin-left:0px; width: 12px; height: 12px; background-size: contain; top:8px;}
+.segunda{margin-left: 8px;}
+.primeraPrev{margin-left: 8px;}
+/* .segundaPrev{margin-left: 8px;} */
+.next {
+  width: 0.7rem;
+  height: 0.7rem;
+  filter: invert(0.8);
+  background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHN0eWxlPi5zdDB7ZmlsbDojZmZmfTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTMxOS4xIDIxN2MyMC4yIDIwLjIgMTkuOSA1My4yLS42IDczLjdzLTUzLjUgMjAuOC03My43LjZsLTE5MC0xOTBjLTIwLjEtMjAuMi0xOS44LTUzLjIuNy03My43UzEwOSA2LjggMTI5LjEgMjdsMTkwIDE5MHoiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzE5LjEgMjkwLjVjMjAuMi0yMC4yIDE5LjktNTMuMi0uNi03My43cy01My41LTIwLjgtNzMuNy0uNmwtMTkwIDE5MGMtMjAuMiAyMC4yLTE5LjkgNTMuMi42IDczLjdzNTMuNSAyMC44IDczLjcuNmwxOTAtMTkweiIvPjwvc3ZnPg==);
+}
+
+.prev {
+  width: 0.7rem;
+  height: 0.7rem;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: invert(0.8);
+  -ms-filter: "FlipH";
+  background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgNTEyIDUxMiI+PHN0eWxlPi5zdDB7ZmlsbDojZmZmfTwvc3R5bGU+PHBhdGggY2xhc3M9InN0MCIgZD0iTTMxOS4xIDIxN2MyMC4yIDIwLjIgMTkuOSA1My4yLS42IDczLjdzLTUzLjUgMjAuOC03My43LjZsLTE5MC0xOTBjLTIwLjEtMjAuMi0xOS44LTUzLjIuNy03My43UzEwOSA2LjggMTI5LjEgMjdsMTkwIDE5MHoiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzE5LjEgMjkwLjVjMjAuMi0yMC4yIDE5LjktNTMuMi0uNi03My43cy01My41LTIwLjgtNzMuNy0uNmwtMTkwIDE5MGMtMjAuMiAyMC4yLTE5LjkgNTMuMi42IDczLjdzNTMuNSAyMC44IDczLjcuNmwxOTAtMTkweiIvPjwvc3ZnPg==);
+}
+
+
+@keyframes bounceAlphaPrev {
+  0% {filter: invert(0.8); opacity: 1; transform: translateX(0px) scaleX(-1) scaleY(1)}
+  25%{filter: invert(0.8); opacity: 0; transform:translateX(-10px) scaleX(-0.6) scaleY(0.6)}
+  26%{filter: invert(0.8); opacity: 0; transform:translateX(10px) scaleX(-0.6) scaleY(0.6)}
+  55% {filter: invert(0.8); opacity: 1; transform: translateX(0px) scaleX(-1) scaleY(1)}
+}
+
+@keyframes bounceAlpha {
+  0% {filter: invert(0.8); opacity: 1; transform: translateX(0px) scaleX(1) scaleY(1)}
+  25%{filter: invert(0.8); opacity: 0; transform:translateX(10px) scaleX(0.6) scaleY(0.6)}
+  26%{filter: invert(0.8); opacity: 0; transform:translateX(-10px) scaleX(0.6) scaleY(0.6)}
+  55% {filter: invert(0.8); opacity: 1; transform: translateX(0px) scaleX(1) scaleY(1)}
+}
+
+.bounceAlpha {
+  animation-name: bounceAlpha;
+  animation-duration:1.4s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+.arrow.primera.bounceAlpha {
+  animation-name: bounceAlpha;
+  animation-duration:1.4s;
+  animation-delay:0.2s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+.round:hover .arrow{
+  animation-name: bounceAlpha;
+  animation-duration:1.4s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+.round:hover .arrow.primera{
+  animation-name: bounceAlpha;
+  animation-duration:1.4s;
+  animation-delay:0.2s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+.bounceAlphaPrev {
+  animation-name: bounceAlphaPrev;
+  animation-duration:1.4s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+.arrowPrev.primeraPrev.bounceAlphaPrev {
+  animation-name: bounceAlphaPrev;
+  animation-duration:1.4s;
+  animation-delay:0.2s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+.roundPrev:hover .arrowPrev{
+  animation-name: bounceAlphaPrev;
+  animation-duration:1.4s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+.roundPrev:hover .arrowPrev.primeraPrev{
+  animation-name: bounceAlphaPrev;
+  animation-duration:1.4s;
+  animation-delay:0.2s;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

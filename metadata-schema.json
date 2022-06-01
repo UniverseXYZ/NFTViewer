@@ -1,0 +1,52 @@
+{
+  "name": "NFT Title",
+  "description": "NFT Description",
+  "image_url": "https://arweave.net/url (primary/backup asset shown depending on toggle and selection)",
+  "animation_url": "https://arweave.net/iframe (SHOWN ONLY IF IFRAME PARAM IS USED IN ASSET)",
+  "assets": [
+    {
+      "name": "asset title (optional)",
+      "description": "asset description (optional)",
+      "primary_asset": "arweave url",
+      "backup_asset": "ipfs url",
+      "torrent": "magnet uri",
+      "default": false,
+      "iframe": "https://arweave.net/iframe",
+      "filetype": "MP4"
+    },
+    {
+      "name": "asset title (optional)",
+      "description": "asset description (optional)",
+      "primary_asset": "arweave url",
+      "backup_asset": "ipfs url",
+      "torrent": "magnet uri",
+      "default": true,
+      "filetype": "OBJ"
+    }
+  ],
+  "additional_assets": [
+    {
+      "name": "asset title (optional)",
+      "description": "asset description (optional)",
+      "asset": "arweave url",
+      "filetype": "PDF"
+    },
+    {
+      "name": "asset title (optional)",
+      "description": "asset description (optional)",
+      "asset": "arweave url",
+      "filetype": "PPT"
+    }
+  ],
+  "attributes": [
+    {
+      "trait_type": "Creative Director",
+      "value": "Jesus"
+    },
+    {
+      "trait_type": "Type",
+      "value": "Rare"
+    }
+  ],
+  "license": "https://arweave.net/hash"
+}

@@ -1,0 +1,142 @@
+{
+  "basic": {
+    "isOnChain": false,
+    "assets": [
+      ["token name", "token description"],
+      ["https://arweave.net/firstAsset"],
+      ["https://ipfs.io/backupAsset"],
+      ["Asset Title"],
+      ["Asset Description"],
+      ["magnet:?xt=urn:btih:firstMagnetURI"],
+      [],
+      [],
+      []
+    ],
+    "metadata": [[],[],[]],
+    "licenseURI": "",
+    "externalURL": "https://universe.xyz",
+    "editions": 1,
+    "editionName": false,
+    "fees": [
+      ["0x4B49652fBf286b3DA10E44442c38134d841159eF", 1, 5000, 1000, 1642023305, 1642133305],
+      ["0xeEE5Eb24E7A0EA53B75a1b9aD72e7D20562f4283", 1, 1000, 5000, 1642023305, 1642133305]
+    ]
+  },
+  "animation": {
+    "isOnChain": true,
+    "assets": [
+      ["animation_url token", "This is the token description of the complex token"],
+      ["https://arweave.net/firstAsset", "https://arweave.net/secondAsset"],
+      ["https://ipfs.io/backupAsset", "https://ipfs.io/backupAsset"],
+      ["First Asset", "Second Asset"],
+      ["First Description", "Second Description"],
+      ["magnet:?xt=urn:btih:firstMagnetURI", "magnet:?xt=urn:btih:secondMagnetURI"],
+      ["https://arweave.net/additionalAsset1", "https://arweave.net/additionalAsset2"],
+      ["Additional Asset 1", "Additional Asset 2"],
+      ["https://google.com"]
+    ],
+    "metadata": [[],[],[]],
+    "licenseURI": "https://arweave.net/license",
+    "externalURL": "https://universe.xyz",
+    "editions": 1,
+    "editionName": false,
+    "fees": [
+      ["0x4B49652fBf286b3DA10E44442c38134d841159eF", 0, 5000, 0, 0, 0],
+      ["0xeEE5Eb24E7A0EA53B75a1b9aD72e7D20562f4283", 0, 1000, 0, 0, 0]
+    ]
+  },
+  "large": {
+    "isOnChain": true,
+    "assets": [
+      ["Complex token", "This is the token description of the complex token"],
+      [
+        "https://arweave.net/firstAsset",
+        "https://arweave.net/secondAsset",
+        "https://arweave.net/thirdAsset",
+        "https://arweave.net/fourthAsset",
+        "https://arweave.net/fifthAsset",
+        "https://arweave.net/sixthAsset",
+        "https://arweave.net/seventhAsset",
+        "https://arweave.net/eighthAsset",
+        "https://arweave.net/ninthAsset",
+        "https://arweave.net/tenthAsset"
+      ],
+      [
+        "https://ipfs.io/firstAssetbackup",
+        "https://ipfs.io/secondAssetbackup",
+        "https://ipfs.io/thirdAssetbackup",
+        "https://ipfs.io/fourthAssetbackup",
+        "https://ipfs.io/fifthAssetbackup",
+        "https://ipfs.io/sixthAssetbackup",
+        "https://ipfs.io/seventhAssetbackup",
+        "https://ipfs.io/eighthAssetbackup",
+        "https://ipfs.io/ninthAssetbackup",
+        "https://ipfs.io/tenthAssetbackup"
+      ],
+      [
+        "First Asset",
+        "Second Asset",
+        "Third Asset",
+        "Fouth Asset",
+        "Fifth Asset",
+        "Sixth Asset",
+        "Seventh Asset",
+        "Eighth Asset",
+        "Ninth Asset",
+        "Tenth Asset"
+      ],
+      [
+        "First Description",
+        "Second Description",
+        "Third Description",
+        "Fouth Description",
+        "Fifth Description",
+        "Sixth Description",
+        "Seventh Description",
+        "Eighth Description",
+        "Ninth Description",
+        "Tenth Description"
+      ],
+      [
+        "magnet:?xt=urn:btih:c12fe1c06bba254a9dc9f519b335aa7c1367a88a",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      ["https://arweave.net/additionalAsset1", "https://arweave.net/additionalAsset2"],
+      ["Additional Asset 1", "Additional Asset 2"],
+      []
+    ],
+    "metadata": [
+      [
+        "Rarity",
+        "Score",
+        "Color"
+      ],
+      [
+        "Legedary",
+        "100",
+        "Blue"
+      ],
+      [
+        "0",
+        "0",
+        "1"
+      ]
+    ],
+    "licenseURI": "https://arweave.net/license",
+    "externalURL": "https://universe.xyz",
+    "editions": 50,
+    "editionName": true,
+    "fees": [
+      ["0x4B49652fBf286b3DA10E44442c38134d841159eF", 0, 500, 0, 0, 0],
+      ["0xeEE5Eb24E7A0EA53B75a1b9aD72e7D20562f4283", 0, 300, 0, 0, 0]
+    ]
+  }
+}
