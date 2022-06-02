@@ -163,6 +163,8 @@ describe("UniverseSingularity", function() {
 
     await deployInstance.bulkAddAsset(38, bulkAssetData);
     data = base64toJSON(await deployInstance.tokenURI(50));
+    console.log("got data", await deployInstance.tokenURI(50));
+
     expect(data.assets[data.assets.length - 2].name).to.equal('Bulk Asset Title');
     expect(data.assets[data.assets.length - 1].description).to.equal('Bulk Asset Description 2');
   });
