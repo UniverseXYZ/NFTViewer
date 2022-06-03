@@ -6,3 +6,8 @@ artifacts
 yarn.lock
 .env
 .next
+arweave.json
+out
+out-id.txt
+out-manifest.csv
+out-manifest.json

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,6 +8,7 @@ import "swiper/css";
 import Details from "../public/details.svg";
 import SoundOn from "../public/sound-on.svg";
 import SoundOff from "../public/sound-off.svg";
+import Link from "../public/link.svg";
 import Asset from "components/Asset";
 
 // Test Metadata:
@@ -16,20 +17,39 @@ import Asset from "components/Asset";
 const Index = () => {
   const router = useRouter();
 
-  const { metadata: base64 } = router.query;
-  const metadata = base64
-    ? // @ts-ignore
-      JSON.parse(Buffer.from(base64, "base64").toString("ascii"))
-    : { assets: [] };
+  const { metadata: arweave } = router.query;
 
+  const [metadata, setMetadata] = useState<any>({ assets: [] });
   const { assets } = metadata;
+
+  useEffect(() => {
+    function getMetadata(metadata: string) {
+      return fetch(`https://arweave.net/${metadata}`)
+        .then((response) => response.json())
+        .then((responseJson) => {
+          console.log("got json", responseJson);
+          setMetadata(responseJson);
+          return responseJson;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+
+    if (arweave) getMetadata(arweave.toString());
+  }, [arweave]);
 
   const [swiper, setSwiper] = useState<any>(null);
   const [swipeIndex, setSwipeIndex] = useState(0);
+  const [isVideo, setIsVideo] = useState(false);
   const [muted, setMuted] = useState(true);
   const [expand, setExpand] = useState(true);
 
-  console.log("GOT ASSETS", assets);
+  console.log("GOT METADATA", metadata);
+
+  const allowTouchMove = (val: boolean) => {
+    swiper.allowTouchMove = val;
+  };
 
   // if (swiper) swiper.allowTouchMove = swipeIndex === 2 ? false : true;
 
@@ -40,31 +60,34 @@ const Index = () => {
         <meta name="description" content="NFT View by illestrater" />
         <link rel="icon" href="./favicon.ico" />
       </Head>
-      <div className="justify-center flex flex-col h-screen">
+      <div className="justify-center flex flex-col h-screen overflow-hidden bg-white">
         <div
           className={`justify-center flex shrink min-h-0 ${
             expand ? "info-bottom h-full" : "info-bottom h-1/2"
           }`}
         >
           <div
-            className={`min-w-0 info-side h-full overflow-y-scroll break-words ${
+            className={`min-w-0 info-side h-full overflow-y-auto overflow-x-hidden break-words ${
               expand ? "w-0" : "w-1/2 border-grey-300 border-r-2"
             }`}
           >
-            <div
-              className={`p-2 pt-1 ${expand ? "opacity-0" : "info-side-text"}`}
-            >
-              NFT Info Is this a sdk fhla fhlahsduif hailsudhf ilauwhe
-              filuahwfuewh alifuhaewilfua ilwh NFT Info Is this a sdk fhla
-              fhlahsduif hailsudhf ilauwhe filuahwfuewh alifuhaewilfua ilwh NFT
-              Info Is this a sdk fhla fhlahsduif hailsudhf ilauwhe filuahwfuewh
-              alifuhaewilfua ilwh NFT Info Is this a sdk fhla fhlahsduif
-              hailsudhf ilauwhe filuahwfuewh alifuhaewilfua ilwh NFT Info Is
-              this a sdk fhla fhlahsduif hailsudhf ilauwhe filuahwfuewh
-              alifuhaewilfua ilwh NFT Info Is this a sdk fhla fhlahsduif
-              hailsudhf ilauwhe filuahwfuewh alifuhaewilfua ilwh NFT Info Is
-              this a sdk fhla fhlahsduif hailsudhf ilauwhe filuahwfuewh
-              alifuhaewilfua ilwh
+            <div className={`p-2 pt-1 ${expand ? "opacity-0" : "info-fade"}`}>
+              <div className="flex">
+                <div className={"font-bold flex-auto"}>
+                  {assets && assets.length > 0 && assets[swipeIndex].name}
+                </div>
+                <div
+                  className={
+                    "pt-0 pb-0.5 p-1 mt-0.5 ml-2 text-xs shrink-0 bg-gray-200 rounded-md h-5"
+                  }
+                >
+                  {swipeIndex + 1} / {assets?.length}
+                </div>
+              </div>
+
+              <div>
+                {assets && assets.length > 0 && assets[swipeIndex].description}
+              </div>
             </div>
           </div>
           <Swiper
@@ -87,6 +110,8 @@ const Index = () => {
                       swipeIndex={swipeIndex}
                       index={index}
                       muted={muted}
+                      allowTouchMove={allowTouchMove}
+                      setIsVideo={setIsVideo}
                     />
                   </SwiperSlide>
                 );
@@ -100,50 +125,118 @@ const Index = () => {
           </Swiper>
         </div>
         <div
-          className={`flex border-t-2 border-gray-300 info-bottom ${
-            expand ? "h-16" : "h-1/2"
+          className={`flex flex-col border-t-2 border-gray-300 info-bottom ${
+            expand ? "h-12" : "h-1/2"
           }`}
         >
-          <div className={"flex-auto ml-2 mt-1.5 text-sm truncate h-12"}>
-            <div className={"font-bold truncate"}>NFT Title</div>
-            <div className={"truncate"}>Description of the provided asset</div>
+          <div className="flex min-w-0 w-full shadow-lg">
+            <div className={`flex-auto ml-2 mt-0.5 text-sm h-10 truncate`}>
+              {expand ? (
+                <div className={"info-fade leading-4 mt-0.5 mr-1"}>
+                  <div className={"font-bold truncate"}>
+                    {assets && assets.length > 0 && assets[swipeIndex].name}
+                  </div>
+                  <div className={"truncate"}>
+                    {assets &&
+                      assets.length > 0 &&
+                      assets[swipeIndex].description}
+                  </div>
+                </div>
+              ) : (
+                <div className={"font-bold text-lg mt-1 truncate"}>
+                  Token Info
+                </div>
+              )}
+            </div>
+            <div className={"flex space-x-1 mr-2 h-10"}>
+              {isVideo && (
+                <div className="round" onClick={() => setMuted(!muted)}>
+                  <div className="outliner cursor-pointer">
+                    <div className={"sound-buttons"}>
+                      {muted ? (
+                        <Image unoptimized src={SoundOff} />
+                      ) : (
+                        <Image unoptimized src={SoundOn} />
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+              <div className="round" onClick={() => setExpand(!expand)}>
+                <div className="outliner cursor-pointer">
+                  <div className={"control-buttons"}>
+                    <Image unoptimized src={Details} />
+                  </div>
+                </div>
+              </div>
+              <div
+                className={swipeIndex === 0 ? "roundEnd" : "roundPrev"}
+                onClick={() => swiper.slidePrev()}
+              >
+                <div className="outliner cursor-pointer">
+                  <div id="cta">
+                    <span className="arrowPrev primeraPrev prev"></span>
+                    <span className="arrowPrev segundaPrev prev"></span>
+                  </div>
+                </div>
+              </div>
+              <div
+                className={
+                  swipeIndex === assets?.length - 1 ? "roundEnd" : "round"
+                }
+                onClick={() => swiper.slideNext()}
+              >
+                <div className="outliner cursor-pointer">
+                  <div id="cta">
+                    <span className="arrow primera next"></span>
+                    <span className="arrow segunda next"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className={"flex space-x-1 mr-2 h-14"}>
-            <div className="round" onClick={() => setMuted(!muted)}>
-              <div className="outliner cursor-pointer">
-                <div className={"sound-buttons"}>
-                  {muted ? <Image src={SoundOff} /> : <Image src={SoundOn} />}
-                </div>
+          {!expand && (
+            <div
+              className={
+                "p-2 opacity-100 info-fade overflow-y-auto overflow-x-hidden min-h-0 flex-auto"
+              }
+            >
+              <div className="flex font-bold">
+                <div className={"flex-auto"}>{metadata?.name}</div>
+                {metadata?.external_url && (
+                  <div
+                    className={
+                      "shrink-0 bg-grey-200 rounded-md mt-0.5 w-4 h-4 cursor-pointer"
+                    }
+                  >
+                    <Image
+                      unoptimized
+                      src={Link}
+                      onClick={() => {
+                        window.open(metadata.external_url, "_blank");
+                      }}
+                    />
+                  </div>
+                )}
+              </div>
+              <div>{metadata?.description}</div>
+              <div className="font-bold mt-2">Properties</div>
+              <div className="flex text-sm flex-wrap pb-2">
+                {metadata?.attributes.map((property: any) => {
+                  return (
+                    <div className="mt-2 mr-2 p-2 bg-gray-200 rounded-lg">
+                      <div className="font-bold">{property.trait_type}</div>
+                      <div>{property.value}</div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
-            <div className="round" onClick={() => setExpand(!expand)}>
-              <div className="outliner cursor-pointer">
-                <div className={"control-buttons"}>
-                  <Image src={Details} />
-                </div>
-              </div>
-            </div>
-            <div className="roundPrev" onClick={() => swiper.slidePrev()}>
-              <div className="outliner cursor-pointer">
-                <div id="cta">
-                  <span className="arrowPrev primeraPrev prev"></span>
-                  <span className="arrowPrev segundaPrev prev"></span>
-                </div>
-              </div>
-            </div>
-            <div className="round" onClick={() => swiper.slideNext()}>
-              <div className="outliner cursor-pointer">
-                <div id="cta">
-                  <span className="arrow primera next"></span>
-                  <span className="arrow segunda next"></span>
-                </div>
-              </div>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
   );
-};;
+};;;
 
 export default Index;

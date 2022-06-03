@@ -15,6 +15,28 @@ a {
   box-sizing: border-box;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(175deg,#bceb00,#00eaea);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(175deg,#acd700,#00cfcf);
+  cursor: pointer;
+}
+
 .info-bottom {
   transition: height 0.5s ease-in-out;
 }
@@ -23,7 +45,7 @@ a {
   transition: width 0.5s ease-in-out;
 }
 
-.info-side-text {
+.info-fade {
   transition: opacity 0.3s ease-in-out;
   transition-delay: 0.5s;
 }
@@ -31,7 +53,7 @@ a {
 .roundPrev {
   position: relative;
   border: 2px;
-  margin-top: 0.6rem;
+  margin-top: 0.25rem;
   width: 2rem;
   height: 2rem;
   border-radius: 100%;
@@ -43,11 +65,23 @@ a {
 .round {
   position: relative;
   border: 2px;
-  margin-top: 0.6rem;
+  margin-top: 0.25rem;
   width: 2rem;
   height: 2rem;
   border-radius: 100%;
   background-image: linear-gradient(175deg,#bceb00,#00eaea);
+  background-origin: border-box !important;
+  border-color: transparent;
+}
+
+.roundEnd {
+  position: relative;
+  border: 2px;
+  margin-top: 0.25rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 100%;
+  background-image: linear-gradient(175deg,#cdcccc,#878787);
   background-origin: border-box !important;
   border-color: transparent;
 }
@@ -64,7 +98,7 @@ a {
 }
 
 .outliner:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .sound-buttons {
